@@ -31,7 +31,7 @@ func init() {
 		fmt.Printf("** could not find path to 'gnuplot':\n%v\n", err)
 		panic("could not find 'gnuplot'")
 	}
-	fmt.Printf("-- found gnuplot command: %s\n", g_gnuplot_cmd)
+	//fmt.Printf("-- found gnuplot command: %s\n", g_gnuplot_cmd)
 }
 
 type gnuplot_error struct {
@@ -52,7 +52,7 @@ func new_plotter_proc(persist bool) (*plotter_process, error) {
 	if persist {
 		proc_args = append(proc_args, "-persist")
 	}
-	fmt.Printf("--> [%v] %v\n", g_gnuplot_cmd, proc_args)
+	//fmt.Printf("--> [%v] %v\n", g_gnuplot_cmd, proc_args)
 	cmd := exec.Command(g_gnuplot_cmd, proc_args...)
 	stdin, err := cmd.StdinPipe()
 	if err != nil {
