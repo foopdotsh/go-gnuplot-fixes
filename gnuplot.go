@@ -31,6 +31,14 @@ func init() {
 		fmt.Printf("** could not find path to 'gnuplot':\n%v\n", err)
 		panic("could not find 'gnuplot'")
 	}
+	if true { 
+		devnull, err := os.OpenFile(os.DevNull, os.O_WRONLY, 0)
+		if err != nil {
+			panic("could not open /dev/null")
+		}
+		os.Stdout = devnull
+		os.Stderr = devnull
+	}
 	fmt.Printf("-- found gnuplot command: %s\n", g_gnuplot_cmd)
 }
 
